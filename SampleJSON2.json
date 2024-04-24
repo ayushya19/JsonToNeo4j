@@ -1,0 +1,214 @@
+{
+    "nodes": 
+            {"Person":[
+                {
+                    "name": "Fitness Tracker",
+                    "group": 0,
+                    "level": 0,
+                    "description": "Activity Monitoring",
+                    "importance": 95
+                },
+                {
+                    "name": "Heart Rate Tracking",
+                    "group": 1,
+                    "level": 1,
+                    "description": "Cardio Monitoring",
+                    "importance": 90
+                },
+                {
+                    "name": "Sleep Analysis",
+                    "group": 1,
+                    "level": 1,
+                    "description": "Sleep Quality Tracking",
+                    "importance": 88
+                },
+                {
+                    "name": "Calorie Burn Estimation",
+                    "group": 1,
+                    "level": 1,
+                    "description": "Energy Expenditure Calculation",
+                    "importance": 86
+                },
+                {
+                    "name": "Step Counting",
+                    "group": 1,
+                    "level": 1,
+                    "description": "Daily Activity Measurement",
+                    "importance": 85
+                },
+                {
+                    "name": "GPS Navigation",
+                    "group": 1,
+                    "level": 1,
+                    "description": "Location Tracking",
+                    "importance": 84
+                },
+                {
+                    "name": "Water Resistance",
+                    "group": 2,
+                    "level": 2,
+                    "description": "Waterproof Design",
+                    "importance": 82
+                },
+                {
+                    "name": "Mobile App Integration",
+                    "group": 2,
+                    "level": 2,
+                    "description": "Sync with Smartphone",
+                    "importance": 80
+                },
+                {
+                    "name": "Heart Rate Variability",
+                    "group": 2,
+                    "level": 2,
+                    "description": "Stress Level Indication",
+                    "importance": 78
+                },
+                {
+                    "name": "Fitness Goals Setting",
+                    "group": 2,
+                    "level": 2,
+                    "description": "Personalized _to_names",
+                    "importance": 76
+                }
+            ]
+        },
+    
+        "relationships": {
+
+            "MONITORS": [
+        
+              {
+        
+                "_from_name": "Fitness Tracker",
+        
+                "_to_name": "Heart Rate Tracking",
+        
+                "relationship_strength": 92
+        
+              },
+        
+              {
+        
+                "_from_name": "Fitness Tracker",
+        
+                "_to_name": "Sleep Analysis",
+        
+                "relationship_strength": 88
+        
+              }
+        
+            ],
+        
+            "ANALYZES": [
+        
+              {
+        
+                "_from_name": "Fitness Tracker",
+        
+                "_to_name": "Sleep Analysis",
+        
+                "relationship_strength": 88
+        
+              }
+        
+            ],
+        
+            "ESTIMATES": [
+        
+              {
+        
+                "_from_name": "Fitness Tracker",
+        
+                "_to_name": "Calorie Burn Estimation",
+        
+                "relationship_strength": 85
+        
+              }
+        
+            ],
+        
+            "TRACKS": [
+        
+              {
+        
+                "_from_name": "Fitness Tracker",
+        
+                "_to_name": "Step Counting",
+        
+                "relationship_strength": 83
+        
+              }
+        
+            ],
+        
+            "LOCATES": [
+        
+              {
+        
+                "_from_name": "Fitness Tracker",
+        
+                "_to_name": "GPS Navigation",
+        
+                "relationship_strength": 80
+        
+              }
+        
+            ],
+        
+            "INDICATES": [
+        
+              {
+        
+                "_from_name": "Heart Rate Tracking",
+        
+                "_to_name": "Heart Rate Variability",
+        
+                "relationship_strength": 78
+        
+              }
+        
+            ],
+        
+            "INCLUDES": [
+        
+              {
+        
+                "_from_name": "Fitness Tracker",
+        
+                "_to_name": "Water Resistance",
+        
+                "relationship_strength": 82
+        
+              }
+        
+            ],
+        
+            "SYNC": [
+        
+              {
+        
+                "_from_name": "Fitness Tracker",
+        
+                "_to_name": "Mobile App Integration",
+        
+                "relationship_strength": 79
+        
+              }
+        
+            ],
+        
+            "PERSONALIZES": [
+        
+              {
+        
+                "_from_name": "Fitness Tracker",
+        
+                "_to_name": "Fitness Goals Setting",
+        
+                "relationship_strength": 76
+        
+              }
+            ]
+        }
+}
