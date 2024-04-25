@@ -2,9 +2,12 @@
 from neo4j import GraphDatabase,RoutingControl,basic_auth
 from configparser import ConfigParser
 from getpass import getpass
-from neo4j_uploader import upload
+#from .neo4j_uploader import *
 import sys
 import json
+
+
+
 filepath=sys.argv[1]
 print(filepath)
 credentials = ("bolt://localhost:7687", "neo4j", "enoughenough")
