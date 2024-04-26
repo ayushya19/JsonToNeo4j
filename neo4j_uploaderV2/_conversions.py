@@ -1,5 +1,5 @@
 # used for converting legacy or alternate schemas to default schema
-from neo4j_uploader.models import Nodes, Relationships, TargetNode
+from neo4j_uploaderV2.models import Nodes, Relationships, TargetNode
 
 def convert_legacy_node_records(
         data: dict,

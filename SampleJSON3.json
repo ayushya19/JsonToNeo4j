@@ -1,0 +1,15 @@
+{
+    "nodes":
+    {
+      "Person": [
+        {"name": "Bob", "age": 30},
+        {"name": "Jane", "age": 25}
+      ]
+    },
+    "relationships":
+    {
+      "KNOWS": [
+        {"_from_name": "Bob", "_to_name": "Jane", "since": 2015}
+      ]
+    }
+  }
