@@ -50,6 +50,7 @@ content_copy
 ## Example JSON format: (Refer to https://github.com/neo4j for more details)
 
 JSON
+```
 {
   "nodes": [
     {
@@ -75,7 +76,7 @@ JSON
     // ... more relationships
   ]
 }
-
+```
 
 ##Running the Script:
 
