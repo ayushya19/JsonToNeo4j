@@ -12,6 +12,9 @@ import json
 # Specify Google doctstring type for pdoc auto doc generation
 __docformat__ = "google"
 
+nodeName=str(input("Please mention the name you have used for nodes"))
+relationshipName=str(input("Please mention the name you have used for relationship"))
+
 def start_logging():
     """
     Enables logging from this module. Log level matches the existing log level of the calling module.
@@ -74,10 +77,8 @@ def batch_upload(
         reset(neo4j_creds, neo4j_database)
 
     # Get list of tuples containing queries and accompanying params for driver execution
-    #print(gdata.relationships)
     query_params = specification_queries(gdata.nodes, cdata)
     query_params.extend(specification_queries(gdata.relationships, cdata))
-
     for qp in query_params:
         # Run queries and retrieve summary of upload
         summary = upload_query(
@@ -170,8 +171,8 @@ def upload(
     if data is None or len(data) == 0:
         raise Exception(f'data payload is empty or an invalid format')
 
-    simple_nodes = data.get('nodes', None)
-    simple_rels = data.get('links', None)
+    simple_nodes = data.get(nodeName, None)
+    simple_rels = data.get(relationshipName, None)
     nodes = convert_legacy_node_records(simple_nodes, dedupe_nodes, node_key)
 
     rels = convert_legacy_relationship_records(simple_rels, dedupe_relationships, node_key)
@@ -186,7 +187,6 @@ def upload(
         max_batch_size = max_batch_size,
         overwrite = should_overwrite
     )
-
     return batch_upload(
         config = config,
         data = {

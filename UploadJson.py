@@ -25,6 +25,29 @@ def main():
   
   databasePassword=questionary.password("Please write the password to access the database").ask()
   
+
+  nodeKey=questionary.text("Please write the key id used for node").ask()
+
+  print(nodeKey)
+
+  # nodeName=questionary.text("Please mention the name you have used for nodes").ask()
+
+  # print(nodeName)
+
+  # relationshipName=questionary.text("Please mention the name you have used for relationship").ask()
+
+  # print(relationshipName)
+
+  # fromNodeName=questionary.text("Please mention the name you have used for from nodes").ask()
+
+  # print(fromNodeName)
+
+  # toNodeName=questionary.text("Please mention the name you have used for to nodes").ask()
+
+  # print(toNodeName)
+
+
+
   #credentials = ("bolt://localhost:7687", "neo4j", "enoughenough")
 
   #credentials tuple to upload
@@ -35,7 +58,7 @@ def main():
     jsonContent=jsonfile.read()
   
   #The upload function has been taken from Json_upload library which is using its own local version
-  upload(credentials, jsonContent, node_key="id")
+  upload(credentials, jsonContent, node_key=nodeKey)
 
 
 if __name__ == '__main__':
