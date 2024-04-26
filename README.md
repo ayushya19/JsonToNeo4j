@@ -8,9 +8,10 @@ Convertible List Values: The uploader handles cases where node or relationship p
 
 Create a conda environment:
 
-Bash
+```
 conda create -n neo4j_upload python=3.x  # Replace with your desired Python version
 conda activate neo4j_upload
+```
 Use code with caution.
 content_copy
 Start Neo4j:
@@ -19,8 +20,9 @@ Follow the official instructions for starting your Neo4j instance (https://neo4j
 Install required libraries:
 
 Bash
-pip install graph-core neo4j  # Replace with specific graph and neo4j library versions if needed
+```pip install graph-core neo4j  # Replace with specific graph and neo4j library versions if needed
 pip install <other_library_for_json_upload>  # Replace with the actual library name
+```
 Use code with caution.
 content_copy
 Reset Neo4j password (if necessary):
@@ -40,7 +42,9 @@ The uploader can handle list values for node and relationship properties, conver
 Run the uploader:
 
 Bash
+```
 python your_script.py /path/to/your/data.json  # Replace with your script name and data path
+```
 Use code with caution.
 content_copy
 ## Example JSON format: (Refer to https://github.com/neo4j for more details)
