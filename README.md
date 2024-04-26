@@ -1,48 +1,93 @@
-Neo4j Uploader with Customizable JSON Model
-This repository provides a customized version of the neo4j-uploader library that allows for flexible and adaptable JSON data upload to Neo4j.
+# Neo4j Uploader with Customizable JSON Model
 
-Features:
+This project provides a customized version of neo4j-uploader that enables importing data from JSON files into a Neo4j graph database. It offers improved flexibility by allowing:
 
-Conda Environment Management: Creates a clean conda environment for isolated project dependencies.
-Neo4j Integration: Starts a Neo4j instance and ensures it's running for data upload.
-Library Installation: Installs essential graph and other necessary libraries for data processing within the environment.
-Enhanced Neo4j Library: Includes additional libraries within Neo4j to facilitate JSON upload.
-Authentication Reset: Provides a method to reset the Neo4j password for secure authentication.
-apoc Extension: Enables the apoc.import.file.enabled=true setting in Neo4j's configuration for file import capabilities.
-JSON Data Conversion: Utilizes the neo4j_uploader library to convert custom JSON data into a format compatible with Neo4j.
-Customizable JSON Model:
-Two key requirements for the JSON data: nodes and links.
-Nodes can have customized property names.
-Relationships (links) can have customizable from_node and to_node property names.
-List-based node and relationship values are handled for flexibility.
-Pydantic Model Validation: Leverages Pydantic to validate the JSON model structure, ensuring data integrity.
-Modifiable Approach: Offers an alternative approach for even greater customization (details available in the code).
-Installation:
+Customizable Node and Relationship Names: You can define the names used for nodes and relationships within your JSON data, making it adaptable to your specific graph model.
+Convertible List Values: The uploader handles cases where node or relationship properties are represented as lists within the JSON. It automatically converts these lists into dictionaries, ensuring compatibility with the expected Neo4j data format.
+## Installation
 
-Create a conda environment: Refer to the conda documentation for creating an environment (https://conda.io/activation)
-Clone this repository: Use git clone https://github.com/<your-username>/<repo-name>.git
-Activate the conda environment: Follow conda's activation instructions for your operating system.
-Install dependencies: Run conda install -f environment.yml (replace environment.yml with the actual filename if different)
-Usage:
+Create a conda environment:
 
-Prepare your JSON data: Ensure it adheres to the documented structure with nodes and links keys, along with customizable properties.
-Run the script: Execute the appropriate script from the scripts directory (consult the code for details).
-Upload your data: The script will convert and upload your JSON data to Neo4j.
-Customization:
+Bash
+conda create -n neo4j_upload python=3.x  # Replace with your desired Python version
+conda activate neo4j_upload
+Use code with caution.
+content_copy
+Start Neo4j:
 
-The provided neo4j_uploader library has been customized. Refer to the code's comments for details on further modifications.
-The alternative approach mentioned in the features section offers even more flexibility. Explore the code for implementation.
-Important Note:
+Follow the official instructions for starting your Neo4j instance (https://neo4j.com/download/).
+Install required libraries:
 
-This repository is a customized version of neo4j-uploader. Please refer to the original project's documentation for additional functionalities and potential updates: https://github.com/neo4j
-Contributing:
+Bash
+pip install graph-core neo4j  # Replace with specific graph and neo4j library versions if needed
+pip install <other_library_for_json_upload>  # Replace with the actual library name
+Use code with caution.
+content_copy
+Reset Neo4j password (if necessary):
 
-We welcome contributions to this project! Please create pull requests with clear explanations of your changes.
+Refer to the Neo4j documentation for resetting the password (https://neo4j.com/docs/operations-manual/current/configuration/set-initial-password/).
+Enable APOC Import (optional):
 
-License:
+In your Neo4j settings, set apoc.import.file.enabled=true.
+## Usage
 
-This project is licensed under the [mention license, e.g., MIT License] (see LICENSE file for details).
+Prepare your JSON data:
 
-Disclaimer:
+Structure your JSON data with two keys: nodes and links.
+Each node and link within these keys should be dictionary objects.
+Customize the node and relationship names within the JSON to match your desired graph model.
+The uploader can handle list values for node and relationship properties, converting them into dictionaries automatically.
+Run the uploader:
 
-While this README provides a general overview, refer to the code itself and any additional comments for specific instructions and usage details.
+Bash
+python your_script.py /path/to/your/data.json  # Replace with your script name and data path
+Use code with caution.
+content_copy
+## Example JSON format: (Refer to https://github.com/neo4j for more details)
+
+JSON
+{
+  "nodes": [
+    {
+      "id": "1",  # Your node ID
+      "name": "Person A",  # Customizable node name
+      "properties": {
+        "age": 30,
+        "city": "New York"
+      }
+    },
+    // ... more nodes
+  ],
+  "links": [
+    {
+      "id": "123",  # Your relationship ID
+      "from": "1",  # Customizable from node ID (refer to nodes section)
+      "to": "2",  # Customizable to node ID (refer to nodes section)
+      "type": "KNOWS",  # Customizable relationship type
+      "properties": {
+        "since": "2020-01-01"
+      }
+    },
+    // ... more relationships
+  ]
+}
+
+
+##Running the Script:
+
+Open a terminal or command prompt and navigate to the directory containing your UploadJson.py script.
+
+Bash
+python UploadJson.py
+
+Follow the prompts in the CLI to provide the necessary details for your JSON data and Neo4j connection.
+
+Please mention the from node key you have used: from_name  (Replace with your relationships from node identifier)
+Please mention the to node key you have used: to_name  (Replace with your relationships from node identifiee)
+Please mention the name you have used for nodes: nodes  (Replace with the name you have used for node)
+Please mention the name you have used for relationships: relationships  (Replace with the name you have used for node)
+Please paste the path to json that you want to upload to the neo4j Database: /path/to/your/data.json  (Replace with the path to json)
+Please mention the url of the Neo4j Database (e.g., bolt://localhost:7687): bolt://your_neo4j_host:port  (Replace with your connection details)
+Please mention the name of the Neo4j Database: neo4j  (Replace if your database name is different)
+Please write the password to access the database: **********  (Your password will not be displayed)
+Please write the key id used for node name (leave blank if not applicable):  (Optional, enter key ID used)
